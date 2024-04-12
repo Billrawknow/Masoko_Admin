@@ -30,7 +30,9 @@ const AddProduct = () => {
         <label htmlFor="file-input">
             <img src={upload_area}className="addproduct-thumnail-img" alt="" />
         </label>
+        <input type="file" name="image" id="file-input" hidden/>
       </div>
+      <button className="addproduct-btn">ADD</button>
     </div>
   );
 };
