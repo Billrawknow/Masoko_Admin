@@ -2,7 +2,7 @@ import React from "react";
 import "./AddProduct.css";
 import upload_area from '../../assets/upload_area.svg'
 import { useState } from "react";
-const AddProduct = () => {
+const addProduct = () => {
 
 const [image,setImage] = useState(false);
 const [productDetails,setProductDetails] = useState({
@@ -20,7 +20,7 @@ const imageHandler = (e)=>{
 const changeHandler = (e)=>{
     setProductDetails({...productDetails,[e.target.name]:e.target.value})
 }
-const Add_product = async ()=>{
+const add_product = async ()=>{
     console.log(productDetails);
     let responseData;
     let product = productDetails;
@@ -53,21 +53,21 @@ const Add_product = async ()=>{
 }
   return (
     <div className="add-product">
-      <div className="addproduct-itemfield">
+      <div className="addproduct-item-field">
         <p>Product title</p>
         <input value={productDetails.name} onChange={changeHandler} type="text" name="name" placeholder="Type here" />
       </div>
       <div className="addproduct-price">
-        <div className="addproduct-itemfield">
+        <div className="addproduct-item-field">
             <p>Price</p>
             <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price"placeholder="Type here" />
         </div>
-        <div className="addproduct-itemfield">
+        <div className="addproduct-item-field">
             <p>Offer Price</p>
             <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price"placeholder="Type here" />
         </div>
       </div>
-      <div className="addproduct-itemfield">
+      <div className="addproduct-item-field">
         <p>Product Category</p>
         <select value={productDetails.category} onChange={changeHandler} name="category" className="add-product-selector">
             <option value="women">Women </option>
@@ -75,15 +75,15 @@ const Add_product = async ()=>{
             <option value="kid">Kid </option>
         </select>
       </div>
-      <div className="addproduct-itemfield">
+      <div className="addproduct-item-field">
         <label htmlFor="file-input">
             <img src={image?URL.createObjectURL(image):upload_area}className="addproduct-thumnail-img" alt="" />
         </label>
         <input onChange={imageHandler} type="file" name="image" id="file-input" hidden/>
       </div>
-      <button onClick={()=>{Add_product()}} className="add-product-btn">ADD</button>
+      <button onClick={()=>{add_product()}} className="add-product-btn">Add Product</button>
     </div>
   );
 };
 
-export default AddProduct;
+export default addProduct;
